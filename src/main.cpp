@@ -27,7 +27,6 @@ void construction(vector<Node*> m)
 
 int main()
 {
-
   fstream is("Jules.txt",std::fstream::in);
 
   std::map<char,int> tab;
@@ -74,6 +73,6 @@ int main()
 
 
 
-
+  
   return 0;
 }
