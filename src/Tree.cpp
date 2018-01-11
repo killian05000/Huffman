@@ -1,4 +1,4 @@
-#include "hpp/Tree.hpp"
+#include "../hpp/Tree.hpp"
 
 size_t Tree::NbrT = 0;
 
@@ -31,14 +31,14 @@ void Tree::insertN(string _name)
       if(_name.compare(n->getKey()) > 0) //fils gauche
       {
 
-        if(n->getSonL() == nullptr)
+        if(n->getLeft() == nullptr)
         {
-            n->setSonL(new Node(_name,n));
+            n->setLeft(new Node(_name,n));
             insert = true;
         }
-        else if(n->getSonL() != nullptr)
+        else if(n->getLeft() != nullptr)
         {
-          n = n->getSonL();
+          n = n->getLeft();
         }
 
       }
@@ -50,14 +50,14 @@ void Tree::insertN(string _name)
       else //fils droit
       {
 
-        if(n->getSonR() == nullptr)
+        if(n->getRight() == nullptr)
         {
-            n->setSonR(new Node(_name,n));
+            n->setRight(new Node(_name,n));
             insert = true;
         }
-        else if(n->getSonR() != nullptr)
+        else if(n->getRight() != nullptr)
         {
-          n = n->getSonR();
+          n = n->getRight();
         }
 
       }

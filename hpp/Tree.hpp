@@ -10,10 +10,7 @@ private:
   size_t NbrN;
   static size_t NbrT;
 
-
-
 public:
-
 
   Tree(string _name);
   //Tree(Tree& _tree);
