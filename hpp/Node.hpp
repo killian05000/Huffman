@@ -8,11 +8,11 @@ class Node
 
 private:
 
-  Node *father;
+  Node *parent;
+  Node *left;
+  Node *right;
   char key;
   size_t value;
-  Node *sonL;
-  Node *sonR;
 
 public:
 
@@ -20,19 +20,25 @@ public:
   Node(char _key,size_t _value,Node* _father = nullptr);
   ~Node();
 
-  inline void setFather(Node *f){father=f;}
-  inline void setSonL(Node *s){sonL=s;}
-  inline void setSonR(Node *s){sonR=s;}
+  inline void setParent(Node *f){parent=f;}
+  inline void setLeft(Node *s){left=s;}
+  inline void setRight(Node *s){right=s;}
   inline void setKey(char _key){key=_key;}
   inline void setValue(size_t _value){value=_value;}
-  inline char getKey() const {return key;}
-  inline size_t getValue() const{return value;}
-  inline Node* getFather() const {return father;}
-  inline Node* getSonL() const {return sonL;}
-  inline Node* getSonR() const {return sonR;}
 
-  inline Node& operator=(const Node& src) { father = src.father; key = src.key; value = src.value; sonL = src.sonL; sonR = src.sonR; return *this;}
+  inline Node* getParent(){return parent;}
+  inline Node* getLeft(){return left;}
+  inline Node* getRight(){return right;}
+  inline char getKey(){return key;}
+  inline size_t getValue(){return value;}
 
-  void affichage();
+  const bool isRoot();
+  const bool isIntern();
+  const bool isExtern();
+  const bool isEmpty();
+
+  inline Node& operator=(const Node& src) { parent = src.parent; key = src.key; value = src.value; left = src.left; right = src.right; return *this;}
+
+  void display();
 
 };
