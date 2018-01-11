@@ -13,60 +13,57 @@ Tree::~Tree()
 {
   //delete tous les noeuds
 }
-
-void Tree::insertN(string _name)
+/*
+void Tree::insertN(string _name,Node *n)
 {
 
-  if(root == nullptr)
+  if(root == nullptr)//Si pas de racine
   {
     root = new Node(_name);
   }
-  else
+  else //Si oui chercher sa place
   {
-    bool insert = false;
-    size_t i = 0;
-    Node *n = root;
-    while(!insert || i > getNbrN())
+    if(n == nullptr) //Regarde si on ne met rien il est forcement root
     {
-      if(_name.compare(n->getKey()) > 0) //fils gauche
-      {
+      n = root;
+    }
 
-        if(n->getSonL() == nullptr)
-        {
-            n->setSonL(new Node(_name,n));
-            insert = true;
-        }
-        else if(n->getSonL() != nullptr)
-        {
-          n = n->getSonL();
-        }
+    if(_name.compare(n->getKey()) > 0) //fils gauche
+    {
+
+      if(n->getSonL() == nullptr)
+      {
+          n->setSonL(new Node(_name,n));
+      }
+      else if(n->getSonL() != nullptr)
+      {
+        n = n->getSonL();
+        insertN(_name,n);
+      }
 
       }
-      else if(_name.compare(n->getKey()) == 0)
-      {
-        n->setValue(n->getValue()+1);
-        insert = true;
-      }
-      else //fils droit
-      {
+    else if(_name.compare(n->getKey()) == 0)//Même key
+    {
+      n->setValue(n->getValue()+1);
+    }
+    else //fils droit
+    {
 
-        if(n->getSonR() == nullptr)
-        {
-            n->setSonR(new Node(_name,n));
-            insert = true;
-        }
-        else if(n->getSonR() != nullptr)
-        {
-          n = n->getSonR();
-        }
-
+      if(n->getSonR() == nullptr)
+      {
+          n->setSonR(new Node(_name,n));
       }
-      ++i;
+      else if(n->getSonR() != nullptr)
+      {
+        n = n->getSonR();
+        insertN(_name,n);
+      }
+
     }
 
   }
 
-}
+}*/
 
 /*void calcule(Noeud* n)
 {
@@ -74,8 +71,8 @@ void Tree::insertN(string _name)
   string valeur = n->getValeur();
 
 }*/
-
+/*
 void Tree::removeN(string _name)
 {
 
-}
+}*/

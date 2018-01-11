@@ -1,14 +1,14 @@
-main.exe: main.o Noeud.o Arbre.o
-	g++ -Wall -o main.exe main.o Noeud.o Arbre.o
+main.exe: main.o Node.o Tree.o
+	g++ -Wall -o main.exe main.o Node.o Tree.o
 
-main.o: main.cpp Noeud.cpp Arbre.cpp
-	g++ -Wall -c -std=c++11 main.cpp Noeud.cpp Arbre.cpp
+main.o: main.cpp Node.cpp Tree.cpp
+	g++ -Wall -c -std=c++11 main.cpp Node.cpp Tree.cpp
 
-Arbre.o: Arbre.cpp Noeud.cpp
-	g++ -Wall -c -std=c++11 Noeud.cpp Arbre.cpp
+Tree.o: Tree.cpp Node.cpp
+	g++ -Wall -c -std=c++11 Node.cpp Tree.cpp
 
-Noeud.o: Noeud.cpp
-	g++ -Wall -c -std=c++11 Noeud.cpp
+Node.o: Node.cpp
+	g++ -Wall -c -std=c++11 Node.cpp
 
 clean:
 	rm *o

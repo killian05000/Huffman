@@ -16,16 +16,14 @@ public:
 
 
   Tree(string _name);
-  //Tree(Tree& _tree);
   ~Tree();
 
-  inline string getName(){return name;}
-  inline size_t getNbrN(){return NbrN;}
-  inline size_t getNbrT(){return NbrT;}
+  inline string getName() const {return name;}
+  inline size_t getNbrN() const {return NbrN;}
+  inline size_t getNbrT() const {return NbrT;}
 
-  void insertN(string _name);
-  void removeN(string _name);
-  //void chercherN(string _name);
+  //void insertN(string _name,Node *n = nullptr);
+  //void removeN(string _name);
 
 protected:
 
