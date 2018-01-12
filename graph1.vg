@@ -1,0 +1,10 @@
+1:  digraph G {
+2:      main -> parse -> execute;
+3:      main -> init;
+4:      main -> cleanup;
+5:      execute -> make_string;
+6:      execute -> printf
+7:      init -> make_string;
+8:      main -> printf;
+9:      execute -> compare;
+10: }
