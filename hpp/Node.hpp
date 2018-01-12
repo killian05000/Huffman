@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <map>
 
 using namespace std;
 
@@ -36,9 +37,12 @@ public:
   const bool isIntern();
   const bool isExtern();
   const bool isEmpty();
+  const bool isEmptyLeft();
+  const bool isEmptyRight();
 
   inline Node& operator=(const Node& src) { parent = src.parent; key = src.key; value = src.value; left = src.left; right = src.right; return *this;}
 
   void display();
+  void FindBit(map<char,string> &a,string path = "");
 
 };

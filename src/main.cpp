@@ -1,79 +1,27 @@
-#include <iostream>
-#include "../hpp/Tree.hpp"
-#include <fstream>
-#include <string>
-#include <unordered_map>
-#include <map>
-#include <vector>
-#include <algorithm>
+#include "../hpp/Fonction.hpp"
 
-using namespace std;
-
-bool myfunction (Node *i,Node *j) { return (i->getValue()<j->getValue()); }
-
-void construction(vector<Node*> m)
+int main(int argc,char *argv[])
 {
-
-  while(m.size() > 1)
+  if(argc > 1)
   {
+    if(std::string(argv[1]) == std::string("huff") && argc > 2)
+    {
+      cout << "lel";
+      fstream is(std::string(argv[2]),std::fstream::in);
+      Huffman(is);
+    }
 
-    Node *n = new Node(' ',m[1]->getValue()+m[0]->getValue());
-    n->setLeft(m[0]);
-    n->setRight(m[1]);
+    if(std::string(argv[1]) == std::string("huffcomp") && argc > 2)
+    {
+      std::map<char,string> ok;
+      fstream is(std::string(argv[2]),std::fstream::in);
+      ok = Huffman(is);
+
+      //fstream ls(std::string(argv[3]),std::fstream::in);
+      Compression(is,ok);
+    }
 
   }
-
-}
-
-int main()
-{
-
-  fstream is("Jules.txt",std::fstream::in);
-
-  std::map<char,int> tab;
-  std::map<int,int> freq;
-  std::map<char,int>::key_compare mycomp = tab.key_comp();
-
-  char a;
-
-  while (is.good())
-  {
-    is >> a;
-    tab[a] += 1;
-
-  }
-
-  char highest = tab.rbegin()->first;
-
-  std::map<char,int>::iterator it = tab.begin();
-  do
-  {
-    std::cout << it->first << " => " << it->second << '\n';
-  } while ( mycomp((*it++).first, highest) );
-
-  std::vector<Node*> nodes;
-  it = tab.begin();
-
-  for(unsigned int i = 0; i < tab.size();++i)
-  {
-    nodes.push_back(new Node(it->first,it->second));
-    (*it++).first;
-  }
-
-  for(unsigned int i = 0; i < nodes.size();++i)
-  {
-    nodes[i]->display();
-  }
-
-  std::sort(nodes.begin(), nodes.end(), myfunction);
-
-  for(unsigned int i = 0; i < nodes.size();++i)
-  {
-    nodes[i]->display();
-  }
-
-
-
 
   return 0;
 }
