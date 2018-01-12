@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-Installation:
-Il faut allez dans le dossier src et utiliser make (sous linux) autrement depuis windows il faut compiler un à un.
-Pour compiler seulement !
-=======
 ****************************
 **Procédure de compliation**
 ****************************
@@ -12,4 +7,4 @@ Nous avons utilisé un makefile:
 -->Pour compiler utiliser la commande "make"
 -->Pour exécuter le programme il suffit de taper "./main.exe" (linux) ou "main.exe" (windows)
 -->Pour netoyer la copie de travail vous pouvez utiliser "make clean" ce qui effacera les .o et l'executable.
->>>>>>> 0e0f217ea10f4b35bde4dde9567a0b1f5cd86c18
+
